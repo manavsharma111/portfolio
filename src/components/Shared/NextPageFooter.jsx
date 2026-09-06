@@ -1,33 +1,57 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 
-export default function NextPageFooter({ title, subtitle, url, image, accentColor }) {
+export default function NextPageFooter({ title, subtitle, url, image, mobileImage, accentColor }) {
   const [isHovered, setIsHovered] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  const showMobileBg = isMobile && mobileImage
 
   return (
     <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden border-t border-white/10 group cursor-pointer">
       
-      {/* Background Image Reveal */}
-      <AnimatePresence>
-        {isHovered && image && (
-          <motion.div 
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute inset-0 z-0 pointer-events-none"
-          >
-            <div className="absolute inset-0 bg-black/40 z-10" />
-            <img 
-              src={image} 
-              alt={title} 
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile: always-visible background image */}
+      {showMobileBg && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute inset-0 bg-black/50 z-10" />
+          <img
+            src={mobileImage}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+
+      {/* Desktop: Background Image Reveal on hover */}
+      {!isMobile && (
+        <AnimatePresence>
+          {isHovered && image && (
+            <motion.div 
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="absolute inset-0 z-0 pointer-events-none"
+            >
+              <div className="absolute inset-0 bg-black/40 z-10" />
+              <img 
+                src={image} 
+                alt={title} 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
 
       {/* Default Dark Background */}
       <div className="absolute inset-0 bg-[#020202] -z-10" />
@@ -53,19 +77,19 @@ export default function NextPageFooter({ title, subtitle, url, image, accentColo
         
         <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-heading font-black leading-none tracking-tight text-transparent transition-all duration-700"
             style={{ 
-              WebkitTextStroke: isHovered ? `2px #fff` : `1px rgba(255,255,255,0.2)`,
-              color: isHovered ? 'transparent' : 'transparent',
-              textShadow: isHovered ? `0 0 40px ${accentColor || '#ffffff'}` : 'none'
+              WebkitTextStroke: isHovered || showMobileBg ? `2px #fff` : `1px rgba(255,255,255,0.2)`,
+              color: 'transparent',
+              textShadow: isHovered || showMobileBg ? `0 0 40px ${accentColor || '#ffffff'}` : 'none'
             }}
         >
           {title}
         </h2>
         
-        {/* Subtle arrow indicator */}
+        {/* Arrow indicator — always visible on mobile */}
         <motion.div 
           animate={{ 
-            opacity: isHovered ? 1 : 0, 
-            y: isHovered ? 0 : 20 
+            opacity: isHovered || showMobileBg ? 1 : 0, 
+            y: isHovered || showMobileBg ? 0 : 20 
           }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-12 w-16 h-16 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm"

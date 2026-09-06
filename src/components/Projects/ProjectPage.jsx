@@ -63,10 +63,10 @@ export default function ProjectPage({ project, projectIndex }) {
         style={{ scaleX: scrollYProgress, backgroundColor: project.accentColor, boxShadow: `0 0 10px ${project.accentColor}` }}
       />
 
-      {/* 1. Hero Block - Full Bleed Image for Seamless Transition */}
-      <section className="hero-section relative w-full h-screen min-h-[600px] flex flex-col justify-center px-6 pb-20 pt-32">
+      {/* 1. Hero Block */}
+      <section className="hero-section relative w-full min-h-[100svh] flex flex-col justify-end px-4 md:px-6 pb-20 pt-24">
 
-        {/* Ambient Parallax Background that bleeds down the page */}
+        {/* Ambient Parallax Background */}
         <div
           className="parallax-bg absolute inset-0 pointer-events-none opacity-30 z-0"
           style={{
@@ -75,85 +75,91 @@ export default function ProjectPage({ project, projectIndex }) {
           }}
         />
 
-        {/* Scroll Down Arrow (Top Right) → goes to Let's Connect */}
-        <motion.button
-          onClick={() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' })}
-          className="absolute top-8 right-8 md:top-12 md:right-12 z-50 w-14 h-14 rounded-full glass border border-white/20 flex items-center justify-center hover:border-cyan/50 hover:bg-white/5 transition-all shadow-2xl group cursor-pointer"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
-          aria-label="Go to Contact"
-        >
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="text-white group-hover:text-cyan transition-colors"
-          >
-            ↓
-          </motion.div>
-        </motion.button>
-
-        {/* Full Screen Background Image (Constrained) */}
+        {/* Full Screen Background Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={project.image}
             alt={project.name}
             className="w-full h-full object-cover"
-            style={{ objectPosition: 'center center' }}
+            style={{ objectPosition: 'center top' }}
           />
-          {/* Gradients to ensure text readability and blend with the page below */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-black/50" />
           <div
-            className="absolute inset-0 opacity-40 mix-blend-overlay"
+            className="absolute inset-0 opacity-30 mix-blend-overlay"
             style={{ background: `radial-gradient(circle at 50% 50%, ${project.accentColor}, transparent 70%)` }}
           />
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto w-full text-center flex flex-col items-center mt-20">
+        {/* Hero Content — stacked cleanly on mobile */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center gap-6 text-center">
 
-          <div className="flex gap-6 justify-center mb-16">
+          {/* Project number tag */}
+          <span className="text-xs font-mono tracking-[0.3em] uppercase opacity-50" style={{ color: project.accentColor }}>
+            {num} / {String(projects.length).padStart(2, '0')} &nbsp;—&nbsp; CASE STUDY
+          </span>
+
+          {/* Project Title */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white" style={{ textShadow: '0 4px 40px rgba(0,0,0,0.6)' }}>
+            <GlitchText text={project.name} />
+          </h1>
+
+          {/* Short tagline */}
+          <p className="text-base md:text-lg text-white/60 max-w-lg leading-relaxed px-2">
+            {project.tagline || project.description?.slice(0, 100) + '…'}
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-3 justify-center mt-2">
             {project.github && (
-              <MagneticButton>
-                <a href={project.github} target="_blank" rel="noreferrer" className="px-8 py-4 rounded-full bg-black/50 backdrop-blur-xl border border-white/20 hover:bg-white/10 transition-colors text-white font-bold tracking-wide inline-block shadow-lg">
-                  GitHub
-                </a>
-              </MagneticButton>
+              <a href={project.github} target="_blank" rel="noreferrer"
+                className="px-6 py-3 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 hover:bg-white/10 transition-colors text-white font-semibold text-sm shadow-lg">
+                GitHub ↗
+              </a>
             )}
-            <MagneticButton>
-              {project.liveDemo ? (
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-8 py-4 rounded-full bg-black/50 backdrop-blur-xl border transition-all hover:bg-black/70 font-bold tracking-wide inline-block shadow-lg"
-                  style={{ borderColor: project.accentColor, color: project.accentColor, boxShadow: `0 0 20px ${project.accentColor}30` }}
-                >
-                  Live Demo
-                </a>
-              ) : (
-                <button className="px-8 py-4 rounded-full bg-black/50 backdrop-blur-xl border border-white/10 text-textMuted cursor-not-allowed shadow-lg">
-                  Live Demo
-                </button>
-              )}
-            </MagneticButton>
+            {project.liveDemo ? (
+              <a href={project.liveDemo} target="_blank" rel="noreferrer"
+                className="px-6 py-3 rounded-full bg-black/60 backdrop-blur-xl border font-semibold text-sm shadow-lg transition-all hover:bg-black/80"
+                style={{ borderColor: project.accentColor, color: project.accentColor }}>
+                Live Demo ↗
+              </a>
+            ) : (
+              <span className="px-6 py-3 rounded-full bg-black/40 border border-white/10 text-white/30 font-semibold text-sm cursor-not-allowed">
+                Live Demo
+              </span>
+            )}
           </div>
 
-          <RevealMask direction="top">
-            <div className="relative w-full max-w-6xl mx-auto aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden glass border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group mt-4">
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-1000 ease-out"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/80 to-transparent z-10 pointer-events-none" />
+          {/* Preview image card — hidden on very small screens to avoid clutter */}
+          <RevealMask direction="top" className="w-full mt-4 hidden sm:block">
+            <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] aspect-video">
+              <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent pointer-events-none" />
             </div>
           </RevealMask>
         </div>
 
+        {/* Tech Marquee strip */}
         <div className="absolute bottom-0 left-0 w-full border-t border-white/10 bg-background/50 backdrop-blur-md z-20">
           <Marquee items={project.tech} speed="30s" />
         </div>
+
+        {/* Scroll Down Arrow */}
+        <motion.button
+          onClick={() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' })}
+          className="absolute top-20 right-5 md:top-12 md:right-12 z-30 w-12 h-12 rounded-full glass border border-white/20 flex items-center justify-center hover:border-cyan/50 hover:bg-white/5 transition-all shadow-xl group cursor-pointer"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          aria-label="Scroll Down"
+        >
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            className="text-white group-hover:text-cyan transition-colors"
+          >
+            ↓
+          </motion.div>
+        </motion.button>
       </section>
 
       {/* 2. Overview Section */}
@@ -246,14 +252,28 @@ export default function ProjectPage({ project, projectIndex }) {
       <section className="py-24 bg-background border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-12 text-center">Performance & Scale</h2>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div
+            className="gap-4 md:gap-8"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${Math.min(project.metrics.length, window?.innerWidth < 640 ? 2 : 4)}, minmax(0, 1fr))`
+            }}
+          >
             {project.metrics.map((m, i) => (
               <RevealMask key={i} direction="top">
-                <div className="glass px-8 py-6 rounded-2xl text-center min-w-[250px] h-full">
-                  <div className="text-4xl font-heading font-bold mb-2" style={{ color: project.accentColor, textShadow: `0 0 20px ${project.accentColor}40` }}>
+                <div className="glass px-3 md:px-8 py-6 rounded-2xl text-center h-full">
+                  <div
+                    className="font-heading font-bold mb-2 break-words leading-tight"
+                    style={{
+                      color: project.accentColor,
+                      textShadow: `0 0 20px ${project.accentColor}40`,
+                      fontSize: 'clamp(1.25rem, 5vw, 2.5rem)'
+                    }}
+                  >
                     <CountUp end={m.value} suffix={m.suffix} duration={2} />
                   </div>
-                  <div className="text-textMuted text-sm uppercase">{m.label}</div>
+                  <div className="text-textMuted text-xs uppercase tracking-wide leading-snug">{m.label}</div>
+                  {m.note && <div className="text-textMuted/50 text-xs mt-1">{m.note}</div>}
                 </div>
               </RevealMask>
             ))}

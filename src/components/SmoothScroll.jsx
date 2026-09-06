@@ -8,6 +8,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 const SmoothScroll = ({ children }) => {
   useEffect(() => {
+    // Mobile uses native scroll - Lenis adds unnecessary overhead on touch
+    const isTouchDevice = window.matchMedia('(hover: none)').matches
+    if (isTouchDevice) return
+
     ScrollTrigger.config({ ignoreMobileResize: true })
     const lenis = new Lenis({
       lerp: 0.05, wheelMultiplier: 1, smoothWheel: true,

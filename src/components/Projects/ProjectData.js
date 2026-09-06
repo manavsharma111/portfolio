@@ -105,7 +105,7 @@ export const projects = [
     accentColor: '#00d9ff',
     image: '/project_image/wolf.png',
     metrics: [
-      { label: 'Polling', value: 0, suffix: ' (pure WebSocket)' }
+      { label: 'Real-time messaging', value: 0, suffix: ' Polling', note: 'Pure WebSocket' }
     ],
     architecture: [
       { title: 'Post Creation', description: 'User creates post -> Redux dispatch -> API upload -> Cloudinary CDN' },

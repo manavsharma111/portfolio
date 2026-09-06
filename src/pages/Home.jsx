@@ -46,6 +46,7 @@ export default function Home() {
         url="/skills"
         accentColor="#00d9ff"
         image="/page image/skills.png"
+        mobileImage="/page image/skill_phone.png"
       />
     </main>
   )

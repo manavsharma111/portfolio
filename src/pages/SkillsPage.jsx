@@ -162,6 +162,7 @@ export default function SkillsPage() {
         url="/projects"
         accentColor="#8b5cf6"
         image="/page image/project (2).png"
+        mobileImage="/page image/project_phone.png"
       />
     </DndContext>
   )

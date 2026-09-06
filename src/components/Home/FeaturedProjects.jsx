@@ -1,4 +1,4 @@
-import React, { useRef, useState, Suspense } from 'react'
+import React, { useRef, useState, useEffect, Suspense } from 'react'
 import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
 import { useTexture, Text, shaderMaterial } from '@react-three/drei'
 import * as THREE from 'three'
@@ -322,22 +322,53 @@ class FeaturedErrorBoundary extends React.Component {
   }
 }
 
+// Mobile card fallback
+function MobileProjectCard({ project, index }) {
+  const navigate = useNavigate()
+  return (
+    <div
+      onClick={() => navigate(`/projects/${project.slug}`)}
+      className="relative flex-shrink-0 w-[75vw] rounded-2xl overflow-hidden border border-white/10 cursor-pointer"
+      style={{ boxShadow: `0 0 20px ${project.color}33` }}
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-56 object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 p-4">
+        <p className="text-white font-heading font-bold text-lg" style={{ color: project.color }}>{project.title}</p>
+        <p className="text-white/50 text-xs mt-1">Tap to explore →</p>
+      </div>
+    </div>
+  )
+}
+
 export default function FeaturedProjects() {
   const [activeIndex, setActiveIndex] = useState(null)
   const containerRef = useRef(null)
-  
+  const [isMobile, setIsMobile] = useState(false)
+
   // Unmount when far out of view to save massive GPU memory from 5 textures
   const isInView = useInView(containerRef, { margin: "500px 0px 500px 0px" })
 
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
   return (
-    <section ref={containerRef} className="py-20 relative w-full h-screen overflow-hidden bg-[#020202]">
+    <section ref={containerRef} className={`py-20 relative w-full overflow-hidden bg-[#020202] ${isMobile ? 'min-h-[auto]' : 'h-screen'}`}>
       <div
         className="absolute top-16 left-0 right-0 z-10 pointer-events-none transition-opacity duration-500"
         style={{ opacity: activeIndex !== null ? 0 : 1 }}
       >
         <RevealMask direction="top">
           <div className="flex justify-center items-center gap-3 md:gap-4 my-5 pointer-events-auto cursor-default">
-            <h2 
+            <h2
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white relative inline-block transition-transform duration-300 hover:scale-[1.02]"
               style={{ textShadow: '0 0 20px rgba(255,255,255,0.1)' }}
             >
@@ -345,7 +376,7 @@ export default function FeaturedProjects() {
                 <span key={i} className="inline-block"><TextScramble text={char} triggerOnView={true} /></span>
               ))}
             </h2>
-            <h2 
+            <h2
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan to-purple relative inline-block transition-transform duration-300 hover:scale-[1.02]"
               style={{ textShadow: '0 0 30px rgba(0,217,255,0.3)' }}
             >
@@ -355,23 +386,36 @@ export default function FeaturedProjects() {
             </h2>
           </div>
         </RevealMask>
-       
       </div>
 
-      <FeaturedErrorBoundary>
-        {/* The Camera is permanently fixed at [0,0,8] */}
-        <Canvas
-          camera={{ position: [0, 0, 8], fov: 45 }}
-          dpr={1}
-          gl={{ antialias: false, powerPreference: 'default' }}
-          className={`w-full h-full mt-24 ${activeIndex === null ? 'cursor-grab active:cursor-grabbing' : ''}`}
-        >
-          <ambientLight intensity={1} />
-          <Suspense fallback={null}>
-            <Carousel activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-          </Suspense>
-        </Canvas>
-      </FeaturedErrorBoundary>
+      {/* Mobile: Horizontal scrollable cards */}
+      {isMobile ? (
+        <div className="pt-32 pb-12 px-6">
+          <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4" style={{ scrollbarWidth: 'none' }}>
+            {projects.map((project, i) => (
+              <div key={project.slug} className="snap-center">
+                <MobileProjectCard project={project} index={i} />
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-white/30 text-xs mt-4 tracking-widest uppercase">Swipe to explore</p>
+        </div>
+      ) : (
+        /* Desktop: Full WebGL 3D Carousel */
+        <FeaturedErrorBoundary>
+          <Canvas
+            camera={{ position: [0, 0, 8], fov: 45 }}
+            dpr={1}
+            gl={{ antialias: false, powerPreference: 'default' }}
+            className={`w-full h-full mt-24 ${activeIndex === null ? 'cursor-grab active:cursor-grabbing' : ''}`}
+          >
+            <ambientLight intensity={1} />
+            <Suspense fallback={null}>
+              <Carousel activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+            </Suspense>
+          </Canvas>
+        </FeaturedErrorBoundary>
+      )}
     </section>
   )
 }

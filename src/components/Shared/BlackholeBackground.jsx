@@ -58,15 +58,18 @@ export default function BlackholeBackground() {
         ctx.fillStyle = this.color
         
         // Glow
-        ctx.shadowBlur = 8
-        ctx.shadowColor = this.color
+        if (!isMobile) {
+          ctx.shadowBlur = 8
+          ctx.shadowColor = this.color
+        }
         ctx.fill()
       }
     }
     
+    const isMobile = window.innerWidth < 768
     const initParticles = () => {
       particles = []
-      const numParticles = Math.min(window.innerWidth, 1200) // Responsive amount, up to 1200 particles
+      const numParticles = isMobile ? 80 : Math.min(window.innerWidth, 1200)
       for (let i = 0; i < numParticles; i++) {
         particles.push(new Particle(canvas.width, canvas.height))
       }

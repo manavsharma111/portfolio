@@ -103,7 +103,7 @@ export default function ContactPage() {
       {showScrollTop && (
         <button 
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors z-50 text-white"
+          className="fixed bottom-8 left-8 w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors z-50 text-white"
         >
           ↑
         </button>

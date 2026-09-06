@@ -2,8 +2,11 @@ import { useEffect, useRef } from 'react';
 
 export default function CursorSparks() {
   const canvasRef = useRef(null);
-  
+  const isTouch = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches
+
   useEffect(() => {
+    // Completely disable on touch/mobile devices
+    if (isTouch) return
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -105,6 +108,8 @@ export default function CursorSparks() {
     };
   }, []);
   
+  if (isTouch) return null;
+
   return (
     <canvas 
       ref={canvasRef} 
