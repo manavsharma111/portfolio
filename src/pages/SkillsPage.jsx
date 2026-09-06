@@ -71,12 +71,29 @@ export default function SkillsPage() {
         <title>Skills & Tech Stack — Manav Sharma</title>
       </Helmet>
 
-      <main className="w-full min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto overflow-hidden">
+      <main className="relative w-full min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto overflow-hidden">
+        {/* Scroll Down Arrow */}
+        <motion.button
+          onClick={() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' })}
+          className="absolute top-20 right-5 md:top-12 md:right-12 z-30 w-12 h-12 rounded-full glass border border-white/20 flex items-center justify-center hover:border-cyan/50 hover:bg-white/5 transition-all shadow-xl group cursor-pointer"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          aria-label="Scroll Down"
+        >
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+            className="text-white group-hover:text-cyan transition-colors"
+          >
+            ↓
+          </motion.div>
+        </motion.button>
+
         <div className="mb-12 text-center">
           <h1 className="text-5xl md:text-6xl font-heading font-bold mb-8 gradient-text">
             <TextScramble text="Skills & Tech Stack" triggerOnView={true} />
           </h1>
-          
           <div className="flex flex-wrap justify-center gap-4 mb-16 relative z-10">
             {categories.map(cat => (
               <button
@@ -129,9 +146,9 @@ export default function SkillsPage() {
           </AnimatePresence>
         </motion.div>
 
-        <div className="mt-20 pt-10 border-t border-white/10 text-center relative z-10">
-          <p className="text-textMuted mb-6">Interactive Legend: Hover to explore connections, drag to play.</p>
-        </div>
+        {/* <div className="mt-20 pt-10 border-t border-white/10 text-center relative z-10"> */}
+        {/* <p className="text-textMuted mb-6">Interactive Legend: Hover to explore connections, drag to play.</p> */}
+        {/* </div> */}
 
         <div className="w-full relative mt-10">
           <Marquee items={skills.map(s => s.name)} speed="60s" />
