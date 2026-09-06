@@ -13,7 +13,8 @@ const projects = [
   { title: 'Adaptive HLS', slug: 'anime-stream', color: '#ff006e', image: '/project_image/ABS_HLS_home.png' },
   { title: 'Crochella', slug: 'crochella', color: '#8b5cf6', image: '/project_image/Crochella.png' },
   { title: 'Wolf', slug: 'wolf', color: '#38b2ac', image: '/project_image/wolf.png' },
-  { title: 'AI Finance', slug: 'ai-finance-dashboard', color: '#f97316', image: '/project_image/aifinance.png' }
+  { title: 'AI Finance', slug: 'ai-finance-dashboard', color: '#f97316', image: '/project_image/aifinance.png' },
+  { title: 'Portfolio', slug: 'portfolio', color: '#e6edf3', image: '/project_image/portfulio.png' }
 ]
 
 const ProjectShader = shaderMaterial(

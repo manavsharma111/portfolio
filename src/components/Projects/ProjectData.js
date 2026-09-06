@@ -123,5 +123,57 @@ export const projects = [
     ],
     github: 'https://github.com/manavsharma111',
     liveDemo: 'https://wolf-murex-alpha.vercel.app/'
+  },
+  {
+    slug: 'portfolio',
+    name: 'Portfolio',
+    tagline: 'Awwwards-inspired immersive developer portfolio with 3D WebGL and cinematic animations.',
+    description: 'An interactive, highly performant developer portfolio built to showcase production-grade backend systems and system design expertise. Features a cinematic dark-themed aesthetic with WebGL-powered 3D backgrounds, custom scroll logic, and butter-smooth text animations.',
+    tech: ['React 19', 'Vite', 'Three.js', 'React Three Fiber', 'GSAP', 'Framer Motion', 'Tailwind CSS v4', 'Lenis', 'Lucide React'],
+    accentColor: '#e6edf3',
+    image: '/project_image/portfulio.png',
+    metrics: [
+      { label: 'Render performance', value: 60, suffix: ' FPS', note: 'stable 3D scenes' },
+      { label: 'Lighthouse score', value: 100, suffix: '%', note: 'Accessibility & SEO' }
+    ],
+    architecture: [
+      { title: 'WebGL Canvas', description: 'React Three Fiber handles 3D rendering context separately from DOM' },
+      { title: 'Scroll Hijacking', description: 'Lenis intercepts scroll for fluid inertia' },
+      { title: 'Animation Engine', description: 'GSAP ScrollTrigger coordinates DOM elements with scroll' }
+    ],
+    deepDive: [
+      { title: 'High-Performance Typography', content: 'Built a custom zero-lag letter-by-letter reveal engine using native CSS transitions and requestAnimationFrame, bypassing React render bottlenecks completely.' },
+      { title: 'Immersive 3D/WebGL', content: 'Integrated dynamic WebGL rendering with interactive particles and fluid simulations that respond to user scroll, while maintaining a strict 60 FPS target.' },
+      { title: 'Cinematic UX/UI', content: 'Designed a meticulous dark-mode aesthetic with neon accents (Cyan & Purple), glassmorphism UI elements, and magnetic buttons for a premium "Awwwards" feel.' },
+      { title: 'Mobile First 3D', content: 'Engineered responsive logic that scales down complex 3D scenes and scroll hijackers on touch devices, ensuring zero jank on mobile phones without sacrificing the visual identity.' }
+    ],
+    github: 'https://github.com/manavsharma111/portfolio',
+    liveDemo: 'https://manav-sharma-portfolio.vercel.app'
+  },
+  {
+    slug: 'ai-finance-dashboard',
+    name: 'AI Finance',
+    tagline: 'AI-powered MERN finance dashboard with Groq & Gemini financial advisory.',
+    description: 'An advanced Personal Finance Dashboard that simplifies smart expense tracking and provides personalized financial insights. Powered by a modern MERN stack and integrated with dual LLM engines (Groq LLaMA 3.3 & Gemini 1.5 Flash) featuring an intelligent 1-hour sliding cache.',
+    tech: ['React 19', 'Tailwind v4', 'Node.js', 'Express', 'MongoDB', 'Gemini AI', 'Groq AI', 'Recharts', 'Nodemailer', 'Framer Motion', 'GSAP', 'tsParticles'],
+    accentColor: '#f97316',
+    image: '/project_image/aifinance.png',
+    metrics: [
+      { label: 'LLM Response Cache', value: 1, suffix: ' hr', note: 'reduces API costs' },
+      { label: 'AI Engines', value: 2, suffix: '', note: 'Groq + Gemini fallback' }
+    ],
+    architecture: [
+      { title: 'Secure Auth', description: 'OTP-verified signups & JWT session management' },
+      { title: 'AI Advisory Engine', description: 'Dual LLM engines with MongoDB caching' },
+      { title: 'Data Export', description: 'SheetJS (XLSX) and CSV stream exports' }
+    ],
+    deepDive: [
+      { title: 'Cognitive AI Insights', content: 'Integrated Groq SDK (LLaMA 3.3) and Google Generative AI (Gemini 1.5 Flash) as a fallback engine to provide expert financial advisory based on 30-day transaction trends. Engineered a high-performance 1-hour sliding cache in MongoDB to minimize API costs and rate limiting.' },
+      { title: 'Dynamic Analytics Engine', content: 'Built interactive comparative analytics using custom Recharts SVG Pie Charts to visualize income/expense distribution across daily, weekly, and monthly timeframes.' },
+      { title: 'Secure Authentication Suite', content: 'Implemented robust OTP-verified signups and password resets via Nodemailer, secured by JSON Web Tokens and BcryptJS hashing with complete automated self-serve reset paths.' },
+      { title: 'Premium UI/UX Ecosystem', content: 'Developed a glassmorphic dark interface using Tailwind CSS v4, augmented with interactive tsParticles backgrounds and 3D parallax tilt effects using Framer Motion (useMotionValue, useSpring) and GSAP.' }
+    ],
+    github: 'https://github.com/manavsharma111/AI-Finance-Dashboard',
+    liveDemo: 'https://ai-finance-dashboard-frontend.vercel.app'
   }
 ]
