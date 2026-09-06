@@ -1,0 +1,3 @@
+Place your VRoid character model here as `character.glb`.
+
+The Hero section loads this file on desktop viewports. If missing, a styled fallback placeholder is shown automatically.
