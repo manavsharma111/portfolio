@@ -27,7 +27,7 @@ export default function Home() {
     }
   }, [location.state])
   return (
-    <main className="w-full min-h-screen">
+    <main className="w-full min-h-screen overflow-x-hidden">
       <Helmet>
         <title>Manav Sharma — MERN Stack Developer & Backend Engineer</title>
         <meta name="description" content="3rd-year ECE student at NIT Bhopal. Full-stack developer specializing in backend systems, self-hosted platforms, and immersive web experiences." />

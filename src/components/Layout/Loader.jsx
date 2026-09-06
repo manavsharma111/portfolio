@@ -32,10 +32,15 @@ const Loader = () => {
 
     return () => {
       clearInterval(interval);
-      // Restore scrollbar when loader unmounts
-      document.body.style.overflow = 'auto';
     };
   }, []);
+
+  // Use another effect to restore overflow when isVisible becomes false
+  useEffect(() => {
+    if (!isVisible) {
+      document.body.style.overflow = '';
+    }
+  }, [isVisible]);
 
   // Keyboard shortcut to close the loader (Enter key)
   useEffect(() => {
@@ -58,7 +63,7 @@ const Loader = () => {
       </style>
       
       <div 
-        className={`fixed inset-0 z-[10000] flex flex-col justify-between h-screen w-screen bg-[#0b0b0b] text-[#4a4a4a] p-8 box-border select-none transition-all duration-700 ease-[cubic-bezier(0.7,0,0.3,1)] ${isExiting ? 'opacity-0 scale-105 pointer-events-none' : 'opacity-100 scale-100'}`}
+        className={`fixed inset-0 z-[10000] flex flex-col justify-between h-full w-full bg-[#0b0b0b] text-[#4a4a4a] p-8 box-border select-none transition-all duration-700 ease-[cubic-bezier(0.7,0,0.3,1)] ${isExiting ? 'opacity-0 scale-105 pointer-events-none' : 'opacity-100 scale-100'}`}
         style={{ fontFamily: "'Share Tech Mono', monospace" }}
       >
         {/* Top corners text */}

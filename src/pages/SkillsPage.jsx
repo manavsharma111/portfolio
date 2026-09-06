@@ -71,7 +71,7 @@ export default function SkillsPage() {
         <title>Skills & Tech Stack — Manav Sharma</title>
       </Helmet>
 
-      <main className="relative w-full min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto overflow-hidden">
+      <main className="relative w-full min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto overflow-x-hidden">
         {/* Scroll Down Arrow */}
         <motion.button
           onClick={() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' })}
