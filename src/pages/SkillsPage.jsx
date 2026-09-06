@@ -178,8 +178,8 @@ export default function SkillsPage() {
         subtitle="View My Work"
         url="/projects"
         accentColor="#8b5cf6"
-        image="/page image/project (2).png"
-        mobileImage="/page image/project_phone.png"
+        image="/page_images/project_2.png"
+        mobileImage="/page_images/project_phone.png"
       />
     </DndContext>
   )

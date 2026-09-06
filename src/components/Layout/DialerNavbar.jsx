@@ -68,6 +68,7 @@ export default function DialerNavbar() {
         {!isOpen && (
           <motion.button
             layoutId="dialer-container"
+            transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             onClick={() => setIsOpen(true)}
             className="fixed bottom-8 right-8 z-[100] w-16 h-16 rounded-full glass border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(0,217,255,0.3)] transition-all cursor-pointer"
             whileHover={{ scale: 1.1 }}
@@ -90,6 +91,7 @@ export default function DialerNavbar() {
           >
             <motion.div
               layoutId="dialer-container"
+              transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
               className="relative w-80 h-80 rounded-full glass border border-white/10 flex items-center justify-center shadow-[0_0_50px_rgba(0,217,255,0.1)] bg-background/50"
               onClick={(e) => e.stopPropagation()}
             >
@@ -104,7 +106,9 @@ export default function DialerNavbar() {
               {/* Glowing Pointer */}
               <motion.div 
                 className="absolute w-full h-full pointer-events-none z-10"
-                animate={{ rotate: angles[activeIndex] }}
+                initial={{ opacity: 0 }}
+                animate={{ rotate: angles[activeIndex], opacity: 1 }}
+                exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.1 } }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
               >
                 <div className="absolute top-10 left-1/2 -translate-x-1/2 w-1 h-6 bg-cyan rounded-full shadow-[0_0_15px_#00d9ff]" />
@@ -128,6 +132,7 @@ export default function DialerNavbar() {
                     style={{ x, y }}
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0, transition: { duration: 0.1 } }}
                     transition={{ delay: 0.1 + i * 0.05 }}
                   >
                     <Link

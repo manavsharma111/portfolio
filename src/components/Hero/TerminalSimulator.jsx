@@ -89,7 +89,7 @@ export default function TerminalSimulator() {
         <div className="w-3 h-3 rounded-full bg-[#EAB308]/80"></div>
         <div className="w-3 h-3 rounded-full bg-[#22C55E]/80"></div>
         <span className="ml-3 text-xs text-[#555] font-mono select-none">
-          visitor@manav-portfolio — zsh
+          Welcome to my Portfolio!!!!
         </span>
       </div>
 
