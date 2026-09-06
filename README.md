@@ -1,37 +1,55 @@
-# 🌌 Manav Sharma | Developer Portfolio
+<div align="center">
+  <img src="./public/PORTFULIO.jpg" alt="Manav Sharma" width="120" height="120" style="border-radius: 50%; object-fit: cover;" />
 
-An interactive, highly performant, and Awwwards-inspired developer portfolio built to showcase production-grade backend systems, full-stack projects, and system design expertise.
+  # 🌌 Manav Sharma | MERN Stack Developer & Backend Engineer
 
-The portfolio features a cinematic, dark-themed aesthetic with WebGL-powered 3D backgrounds, smooth scroll (Lenis), and butter-smooth text animations (GSAP & Framer Motion).
+  An interactive, highly performant, and Awwwards-inspired developer portfolio built to showcase production-grade backend systems, full-stack projects, and system design expertise.
 
-![Portfolio Preview](https://via.placeholder.com/1000x500.png?text=Portfolio+Preview+-+Manav+Sharma) *(Note: Add an actual screenshot link here later)*
+  [**Live Demo**](https://manav-sharma-portfolio.vercel.app) •
+  [**LinkedIn**](https://www.linkedin.com/in/manav-sharma-4a167b274/) •
+  [**NPM**](https://www.npmjs.com/~manavsharma3825)
 
-## 🚀 Live Demo
-**[manavsharma.dev](https://github.com/manavsharma111/portfolio)** *(Update with your live Vercel/Netlify link)*
+</div>
+
+<br />
+
+## 🚀 About This Portfolio
+
+This portfolio features a cinematic, dark-themed aesthetic with WebGL-powered 3D backgrounds, custom scroll logic, and butter-smooth text animations. The entire application is architected around providing a frictionless and deeply immersive user experience, running at a steady 60+ FPS even with complex 3D scenes.
+
+### ✨ Key Features
+- **High-Performance Animations:** Custom zero-lag letter-by-letter reveal engine using native CSS transitions, bypassing React render bottlenecks.
+- **Immersive 3D/WebGL:** Dynamic WebGL rendering with interactive fluid simulations and parallax scrolling effects.
+- **Cinematic Experience:** Meticulously crafted dark-mode aesthetic with neon accents, glassmorphism UI, and magnetic buttons.
+- **Mobile First Performance:** Fully optimized across desktop, tablet, and mobile devices without sacrificing 3D fidelity.
+
+---
+
+## 💻 About Me
+
+I'm a 4th-year ECE student at **NIT Bhopal** focused on **backend engineering** and **system design**. 
+I have built and deployed multiple production-grade applications, including a self-hosted PaaS with a published npm CLI (1,076+ weekly downloads) and an adaptive HLS streaming platform. 
+
+I am an active competitive programmer with **500+ LeetCode problems** solved and a **238-day streak**. Currently seeking SDE roles to build scalable, fault-tolerant systems that solve real-world problems.
 
 ---
 
 ## ⚡ Tech Stack
 
-### Frontend & Animations
-- **Core**: React 19, Vite, Tailwind CSS v3
-- **Animations**: GSAP, Framer Motion
-- **Scroll Handling**: Lenis (Smooth Scroll)
-- **3D & WebGL**: Three.js, React Three Fiber (R3F), Drei
+**Frontend & Animations:**
+- React 19 + Vite
+- Tailwind CSS v4
+- Framer Motion & GSAP
+- Lenis (Smooth Scroll)
+- Three.js & React Three Fiber (R3F)
 
-### Tools & Deployment
-- **Linter**: Oxlint
-- **Icons**: Lucide React, Tech Stack Icons
-- **Deployment**: Vercel (Recommended)
-
----
-
-## ✨ Key Features
-
-- **High-Performance Typography:** Custom-built zero-lag letter-by-letter reveal engine using native CSS transitions and `requestAnimationFrame`, bypassing React render bottlenecks.
-- **Immersive 3D Backgrounds:** Dynamic WebGL rendering with interactive particles and fluid simulations that respond to user scroll.
-- **Cinematic Experience:** Meticulously crafted dark-mode aesthetic with neon accents (Cyan & Purple), glassmorphism UI elements, and magnetic buttons.
-- **Fully Responsive:** Beautifully optimized across desktop, tablet, and mobile devices without sacrificing 3D fidelity.
+**My Backend Arsenal (Showcased in Projects):**
+- Node.js & Express
+- MongoDB & Redis
+- BullMQ (Message Queuing & Background Workers)
+- WebSockets (Socket.io)
+- FFmpeg (Video Transcoding)
+- Cloudflare R2 (S3-compatible CDN Storage)
 
 ---
 
@@ -60,24 +78,16 @@ Want to run this locally? Follow these steps:
 
 ---
 
-## 💻 About Me
-
-I'm a 4th-year ECE student at NIT Bhopal focused on **backend engineering** and **system design**. 
-I have built and deployed multiple production-grade applications, including a self-hosted PaaS with a published npm CLI (1,076+ weekly downloads) and an adaptive HLS streaming platform. 
-
-Active competitive programmer with **500+ LeetCode problems** solved and a **238-day streak**. Currently seeking SDE roles to build systems that solve real problems at scale.
-
----
-
 ## 📞 Connect with Me
 
+If you'd like to chat about system design, backend architectures, or any potential opportunities, feel free to reach out!
+
+- **Email:** [manavsharma3825@gmail.com](mailto:manavsharma3825@gmail.com)
 - **LinkedIn:** [manav-sharma-4a167b274](https://www.linkedin.com/in/manav-sharma-4a167b274/)
 - **GitHub:** [@manavsharma111](https://github.com/manavsharma111)
-- **NPM:** [@manavsharma3825](https://www.npmjs.com/~manavsharma3825)
-- **Email:** manavsharma3825@gmail.com
 
----
+<br />
 
-<p align="center">
-  <i>Designed & Built by <b>Manav Sharma</b></i>
-</p>
+<div align="center">
+  <i>Designed & Engineered by <b>Manav Sharma</b></i>
+</div>
