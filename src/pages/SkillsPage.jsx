@@ -106,7 +106,7 @@ export default function SkillsPage() {
                     layoutId="activeCategory"
                     className="absolute inset-0 rounded-full -z-10"
                     style={{ backgroundColor: categoryColors[cat], boxShadow: `0 0 20px ${categoryColors[cat]}80` }}
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    transition={{ type: 'spring', stiffness: 600, damping: 10 }}
                   />
                 )}
                 <span className="relative z-10">{cat}</span>
