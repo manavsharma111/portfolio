@@ -6,7 +6,7 @@ import SectionDivider from '../components/Shared/SectionDivider'
 import MagneticButton from '../components/Shared/MagneticButton'
 import CinematicTextReveal from '../components/Shared/CinematicTextReveal'
 import TwistingTextHover from '../components/Shared/TwistingTextHover'
-import { Helmet } from 'react-helmet-async'
+
 
 export default function AboutPage() {
   return (
@@ -63,8 +63,8 @@ export default function AboutPage() {
 
       <div className="mt-32 flex flex-col sm:flex-row items-center justify-center gap-6">
         <MagneticButton>
-          <a href="/Manav_Sharma_Resume.pdf" download="Manav_Sharma_Resume.pdf" className="px-10 py-5 rounded-full glass border border-white/20 text-white font-bold text-xl hover:bg-white/10 hover:border-white/40 transition-colors inline-block text-center flex items-center justify-center">
-            <TwistingTextHover text="📄 Download Resume" />
+          <a href="/Manav_Sharma_Resume copy.pdf" download="Manav_Sharma_Resume.pdf" className="px-10 py-5 rounded-full glass border border-white/20 text-white font-bold text-xl hover:bg-white/10 hover:border-white/40 transition-colors inline-block text-center flex items-center justify-center">
+            <TwistingTextHover text=" Download Resume" />
           </a>
         </MagneticButton>
         <MagneticButton>
