@@ -30,7 +30,7 @@ export default function Navbar() {
               const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path))
               return (
                 <MagneticButton key={link.path}>
-                  <Link 
+                  <Link
                     to={link.path}
                     className={`relative text-sm font-medium transition-colors hover:text-cyan
                       ${isActive ? 'text-cyan' : 'text-textMuted'}
@@ -38,7 +38,7 @@ export default function Navbar() {
                   >
                     {link.label}
                     {isActive && (
-                      <motion.div 
+                      <motion.div
                         layoutId="nav-indicator"
                         className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-cyan to-purple"
                       />
@@ -50,7 +50,7 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden relative z-50 p-2 text-textMain"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -83,9 +83,8 @@ export default function Navbar() {
                 <Link
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-3xl font-heading font-bold ${
-                    location.pathname === link.path ? 'gradient-text' : 'text-textMain'
-                  }`}
+                  className={`text-3xl font-heading font-bold ${location.pathname === link.path ? 'gradient-text' : 'text-textMain'
+                    }`}
                 >
                   {link.label}
                 </Link>

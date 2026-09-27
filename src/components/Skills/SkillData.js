@@ -1,6 +1,6 @@
 export const skills = [
   // Frontend
-  { name: 'React 19',       stackIcon: 'react',        category: 'Frontend',  color: '#00d9ff', proficiency: 95, ecosystem: ['Vite', 'Tailwind CSS v4', 'Framer Motion', 'GSAP', 'Redux Toolkit', 'Three.js / R3F', 'Lenis', 'JavaScript'] },
+  { name: 'React 19',       stackIcon: 'reactjs',        category: 'Frontend',  color: '#00d9ff', proficiency: 95, ecosystem: ['Vite', 'Tailwind CSS v4', 'Framer Motion', 'GSAP', 'Redux Toolkit', 'Three.js / R3F', 'Lenis', 'JavaScript'] },
   { name: 'Vite',           stackIcon: 'vitejs',       category: 'Frontend',  color: '#bd34fe', proficiency: 90, ecosystem: ['React 19', 'Tailwind CSS v4', 'JavaScript'] },
   { name: 'Tailwind CSS v4',stackIcon: 'tailwindcss',  category: 'Frontend',  color: '#06b6d4', proficiency: 95, ecosystem: ['React 19', 'Vite', 'Framer Motion', 'GSAP'] },
   { name: 'Framer Motion',  stackIcon: 'motion',       category: 'Frontend',  color: '#ff006e', proficiency: 85, ecosystem: ['React 19', 'Tailwind CSS v4', 'GSAP', 'Lenis'] },

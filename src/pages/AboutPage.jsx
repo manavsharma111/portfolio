@@ -5,6 +5,7 @@ import CountUp from '../components/Shared/CountUp'
 import SectionDivider from '../components/Shared/SectionDivider'
 import MagneticButton from '../components/Shared/MagneticButton'
 import CinematicTextReveal from '../components/Shared/CinematicTextReveal'
+import TwistingTextHover from '../components/Shared/TwistingTextHover'
 import { Helmet } from 'react-helmet-async'
 
 export default function AboutPage() {
@@ -62,13 +63,13 @@ export default function AboutPage() {
 
       <div className="mt-32 flex flex-col sm:flex-row items-center justify-center gap-6">
         <MagneticButton>
-          <a href="/Manav_Sharma_Resume.pdf" download="Manav_Sharma_Resume.pdf" className="px-10 py-5 rounded-full glass border border-white/20 text-white font-bold text-xl hover:bg-white/10 hover:border-white/40 transition-colors inline-block text-center">
-            📄 Download Resume
+          <a href="/Manav_Sharma_Resume.pdf" download="Manav_Sharma_Resume.pdf" className="px-10 py-5 rounded-full glass border border-white/20 text-white font-bold text-xl hover:bg-white/10 hover:border-white/40 transition-colors inline-block text-center flex items-center justify-center">
+            <TwistingTextHover text="📄 Download Resume" />
           </a>
         </MagneticButton>
         <MagneticButton>
-          <Link to="/projects" className="px-10 py-5 rounded-full bg-gradient-to-r from-cyan to-purple text-background font-bold text-xl shadow-[0_0_30px_rgba(0,217,255,0.3)] hover:scale-105 transition-transform inline-block text-center">
-            Check out my work
+          <Link to="/projects" className="px-10 py-5 rounded-full bg-gradient-to-r from-cyan to-purple text-background font-bold text-xl shadow-[0_0_30px_rgba(0,217,255,0.3)] hover:scale-105 transition-transform inline-block text-center flex items-center justify-center">
+            <TwistingTextHover text="Check out my work" />
           </Link>
         </MagneticButton>
       </div>

@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import TextScramble from '../Shared/TextScramble'
 import GlitchText from '../Shared/GlitchText'
 import MagneticButton from '../Shared/MagneticButton'
+import TwistingTextHover from '../Shared/TwistingTextHover'
 
 export default function HeroText() {
   const nameRef = useRef(null)
@@ -91,7 +92,7 @@ export default function HeroText() {
             to="/projects" 
             className="px-5 md:px-8 py-3 md:py-4 rounded-full bg-gradient-to-r from-cyan to-purple text-background font-bold text-sm md:text-lg shadow-[0_0_20px_rgba(0,217,255,0.4)] transition-all hover:scale-105 inline-block"
           >
-            View Projects
+            <TwistingTextHover text="View Projects" />
           </Link>
         </MagneticButton>
 
@@ -100,7 +101,7 @@ export default function HeroText() {
             to="/contact" 
             className="px-5 md:px-8 py-3 md:py-4 rounded-full glass border border-pink text-pink font-bold text-sm md:text-lg shadow-[0_0_15px_rgba(255,0,110,0.2)] transition-all hover:scale-105 inline-block"
           >
-            Get in Touch
+            <TwistingTextHover text="Get in Touch" />
           </Link>
         </MagneticButton>
       </div>

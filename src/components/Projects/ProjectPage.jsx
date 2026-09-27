@@ -15,6 +15,7 @@ import NexForgeCliDocs from './NexForgeCliDocs'
 import CinematicTextReveal from '../Shared/CinematicTextReveal'
 import TechStackSpotlight from '../Shared/TechStackSpotlight'
 import NextProjectFooter from '../Shared/NextProjectFooter'
+import TwistingTextHover from '../Shared/TwistingTextHover'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -112,15 +113,15 @@ export default function ProjectPage({ project, projectIndex }) {
           <div className="flex flex-wrap gap-3 justify-center mt-2">
             {project.github && (
               <a href={project.github} target="_blank" rel="noreferrer"
-                className="px-6 py-3 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 hover:bg-white/10 transition-colors text-white font-semibold text-sm shadow-lg">
-                GitHub ↗
+                className="px-6 py-3 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 hover:bg-white/10 transition-colors text-white font-semibold text-sm shadow-lg flex items-center justify-center">
+                <TwistingTextHover text="GitHub ↗" />
               </a>
             )}
             {project.liveDemo ? (
               <a href={project.liveDemo} target="_blank" rel="noreferrer"
-                className="px-6 py-3 rounded-full bg-black/60 backdrop-blur-xl border font-semibold text-sm shadow-lg transition-all hover:bg-black/80"
+                className="px-6 py-3 rounded-full bg-black/60 backdrop-blur-xl border font-semibold text-sm shadow-lg transition-all hover:bg-black/80 flex items-center justify-center"
                 style={{ borderColor: project.accentColor, color: project.accentColor }}>
-                Live Demo ↗
+                <TwistingTextHover text="Live Demo ↗" />
               </a>
             ) : (
               <span className="px-6 py-3 rounded-full bg-black/40 border border-white/10 text-white/30 font-semibold text-sm cursor-not-allowed">

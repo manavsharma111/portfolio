@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
 import { projects } from '../components/Projects/ProjectData'
 import { Helmet } from 'react-helmet-async'
+import TwistingTextHover from '../components/Shared/TwistingTextHover'
 
 function HorizontalShowcase() {
   const containerRef = useRef(null)
@@ -115,7 +116,7 @@ function HorizontalShowcase() {
                   className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-sm md:text-base text-background transition-all hover:scale-105 hover:shadow-2xl"
                   style={{ backgroundColor: proj.accentColor, boxShadow: `0 0 30px ${proj.accentColor}40` }}
                 >
-                  View Case Study
+                  <TwistingTextHover text="View Case Study" />
                   <span>→</span>
                 </Link>
               </motion.div>
