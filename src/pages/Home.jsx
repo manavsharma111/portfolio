@@ -45,8 +45,8 @@ export default function Home() {
         subtitle="Explore My Tech Stack"
         url="/skills"
         accentColor="#00d9ff"
-        image="/page_images/skills.png"
-        mobileImage="/page_images/skill_phone.png"
+        image="/page_images/skill.png"
+        mobileImage="/page_images/sKiLLs_Phone copy.png"
       />
     </main>
   )
