@@ -82,7 +82,7 @@ export default function ContactPage() {
             </MagneticButton>
 
             <MagneticButton className="w-full">
-              <a href="/Manav_Sharma_Resume copy.pdf" download="Manav_Sharma_Resume.pdf" className="glass p-8 rounded-2xl border border-white/5 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all flex flex-col justify-center items-center text-center group h-full">
+              <a href="/Manav_Sharma_Resume_.pdf" download="Manav_Sharma_Resume.pdf" className="glass p-8 rounded-2xl border border-white/5 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all flex flex-col justify-center items-center text-center group h-full">
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">📄</div>
                 <div className="font-bold text-white mb-1">Resume</div>
                 <div className="text-sm text-textMuted">Download CV</div>
